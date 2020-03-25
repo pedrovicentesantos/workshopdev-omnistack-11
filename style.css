@@ -8,6 +8,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+body.hideScroll {
+  overflow: hidden;
+}
+
 a {
   color: #FF5E84;
   text-decoration: none;
@@ -34,7 +38,7 @@ a:hover {
 #intro {
   width: 300px;
 
-  margin-right: 20px;
+  margin-right: 64px;
 }
 
 main {
@@ -64,19 +68,27 @@ button:hover {
   text-decoration: underline;
 }
 
-button.fat {
+.button {
   color: white;
   background: #FF5E84;
 
   width: 150px;
   height: 40px;
 
-  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
 
   box-shadow: 0px 8px 16px #FF5E8432;
 }
 
-button.fat:hover {
+.button:hover {
+  background-color: #0984e3;
   text-decoration: none;
 }
 
@@ -149,19 +161,22 @@ p, .description {
 
   position: absolute;
   top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   
-  
-  width: 100vmax;
-  height: 100vmax;
-
   display: flex;
   justify-content: center;
 
   transition: 400ms;
 }
 
+#modal.addScroll {
+  overflow: auto;
+}
+
 #modal .content {
-  margin-top: 32px;
+  margin-top: 5%;
 
   color: white;
 }
@@ -176,7 +191,7 @@ p, .description {
   width: 80%;
   max-width: 800px;
 
-  margin: 0 auto;
+  margin: 0 auto 10%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -267,4 +282,69 @@ form a:hover {
   color: #FF5E84;
 
   text-decoration: none;
+}
+
+/* ideias.html */
+
+#page-ideas #container {
+  display: block;
+}
+
+#page-ideas header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#page-ideas nav {
+  display: flex;
+  align-items: center;
+}
+
+#page-ideas nav li {
+  list-style-type: none;
+
+  margin-right: 16px;
+}
+
+#page-ideas nav li a {
+  color: #25282B;
+}
+
+#page-ideas nav li a.button {
+  color: white;
+}
+
+#page-ideas nav li:last-child {
+  margin-right: 0;
+}
+
+section#title {
+  text-align: center;
+}
+
+section#title p {
+  opacity: 0.7;
+  margin: 0;
+}
+
+section#title h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+section#ideas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+section#ideas .idea {
+  margin: 0;
+}
+
+section#title,
+section#ideas,
+footer {
+  margin-top: 64px;
 }
