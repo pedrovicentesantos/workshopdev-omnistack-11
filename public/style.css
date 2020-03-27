@@ -350,3 +350,10 @@ section#ideas,
 footer {
   margin-top: 64px;
 }
+
+#idea-buttons {
+  display: flex;
+  /* Propriedade que só vale em determinados casos */
+  justify-content: space-between;
+  align-items: center;
+}

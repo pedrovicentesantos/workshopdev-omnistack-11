@@ -97,7 +97,6 @@ server.get('/ideias', function(request, response) {
     
   });
 
-  
 });
 
 server.post('/', function(request, response) {

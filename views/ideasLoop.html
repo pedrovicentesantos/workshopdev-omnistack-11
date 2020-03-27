@@ -10,7 +10,12 @@
       <div class="description">
         {{idea.description}}
       </div>
-      <a href={{idea.link}} target="_blank">Ir para ideia</a>
+      
+      <div id="idea-buttons">
+        <a href={{idea.link}} target="_blank">Ir para ideia</a>
+        <a href="/delete" class="button">Deletar ideia</a>
+      </div>
+    
     </div>
   </div>
 {% endfor %}
