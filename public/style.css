@@ -85,6 +85,8 @@ button:hover {
   border-radius: 8px;
 
   box-shadow: 0px 8px 16px #FF5E8432;
+
+  cursor: pointer;
 }
 
 .button:hover {
@@ -159,7 +161,7 @@ p, .description {
 #modal {
   background: #FF5E84;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
