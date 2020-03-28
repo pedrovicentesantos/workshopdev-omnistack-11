@@ -5,50 +5,15 @@ const db = require('./db');
 
 const server = express();
 
-// const ideas = [
-//   {
-//     img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-//     title: "Cursos de Programação",
-//     category: "Estudo",
-//     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, fuga possimus!",
-//     url: "https://rocketseat.com.br"
-//   },
-//   {
-//     img: "https://image.flaticon.com/icons/svg/2729/2729005.svg",
-//     title: "Exercícios",
-//     category: "Saúde",
-//     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, fuga possimus!",
-//     url: "https://rocketseat.com.br"
-//   },
-//   {
-//     img: "https://image.flaticon.com/icons/svg/2729/2729027.svg",
-//     title: "Meditação",
-//     category: "Mentalidade",
-//     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, fuga possimus!",
-//     url: "https://rocketseat.com.br"
-//   },
-//   {
-//     img: "https://image.flaticon.com/icons/svg/2729/2729028.svg",
-//     title: "Cozinhar",
-//     category: "Saúde",
-//     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, fuga possimus!",
-//     url: "https://rocketseat.com.br"
-//   },
-//   {
-//     img: "https://image.flaticon.com/icons/svg/2729/2729042.svg",
-//     title: "Séries",
-//     category: "Entretenimento",
-//     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, fuga possimus!",
-//     url: "https://rocketseat.com.br"
-//   },
-//   {
-//     img: "https://image.flaticon.com/icons/svg/2729/2729069.svg",
-//     title: "Yoga",
-//     category: "Mentalidade",
-//     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, fuga possimus!",
-//     url: "https://rocketseat.com.br"
-//   },
-// ]
+function deleteFromDb(id) {
+  db.run(`DELETE FROM ideas WHERE id=?`, id, function(err) {
+    if(err) {
+      console.log(err);
+      return false
+    }
+    return true
+  });
+}
 
 server.use(express.static('public'));
 
@@ -78,7 +43,6 @@ server.get('/', function(request, response) {
     return response.render('index.html', { ideas: lastIdeas });
     
   });
-  
   
 });
 
@@ -123,6 +87,28 @@ server.post('/', function(request, response) {
 
     return response.redirect('/ideias');
   });
+});
+
+server.delete('/:id', function(request, response) {
+  const id = request.params.id;
+  
+  const result = deleteFromDb(id)
+  if (!result) {
+    return response.send("Erro no BD");
+  }
+  return response.status(204).send('OK');
+
+});
+
+server.delete('/ideias/:id', function(request, response) {
+  const id = request.params.id;
+  
+  const result = deleteFromDb(id)
+  if (!result) {
+    return response.send("Erro no BD");
+  }
+  return response.status(204).send('OK');
+  
 });
 
 server.listen(3000);
