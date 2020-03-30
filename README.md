@@ -10,3 +10,24 @@ Feito baseado no conteúdo do Workshop Semana OmniStack 11.
 - Front-end com HTML e CSS 
   * Uso do Nunjucks para uso de templates
 - Banco de Dados SQLite para persistir os dados
+
+## Instalação
+
+Para começar a utilizar o projeto, deve-se clonar o repositório e entrar na pasta do projeto:
+
+```
+git clone https://github.com/pedrovicentesantos/be-the-hero-omnistack-11
+cd be-the-hero-omnistack-11
+```
+
+Para rodar a aplicação deve-se usar o seguinte comando:
+
+```
+npm start
+```
+
+Feito isto, a aplicação estará rodando e pode ser utilizada no servidor local acessando:
+
+```
+localhost:3000
+```
